@@ -1,16 +1,21 @@
+"""
+Используем алгоритм AES и шифруем введенные данные логина и пароля.
+Вставляем наш новый 16-байтовый ключ (если требуется) и упаковываем все
+это дело в .exe файл.
+"""
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
-from base64 import standard_b64encode
+import base64
 
 # Ключ шифрования:
-KEY: bytes = b'\x8a9\xda7\xf6\xadN\xe7\xc5\xf1\xc3\xbf\x97W\xeaF'
+KEY: bytes = b'\x9dy\x04\xb3\xb9\x9c\xa9\x19\xd8\xef\x91\xad\xcb\xa7\x93\x1e'
 
 
 def aes_encrypt(data: str, key: bytes) -> str:
     cipher = AES.new(key, AES.MODE_ECB)
     encrypted_data = cipher.encrypt(pad(data.encode(), AES.block_size))
 
-    return standard_b64encode(encrypted_data).decode()
+    return base64.standard_b64encode(encrypted_data).decode()
 
 
 def main():
