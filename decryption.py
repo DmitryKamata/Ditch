@@ -20,7 +20,7 @@ def aes_decrypt(encrypted_data: str, key: bytes) -> str:
 
 
 # Далее все для проверки корректности дешифровки
-encrypted_str = 'zwubY/C15yhaFUxfhuFJc/vqMR2+JiXBesKIRnIURRU='
+encrypted_str = 'NFVbDWaztQ5UQgGfna52ew=='
 
 decrypted_str = aes_decrypt(encrypted_data=encrypted_str, key=KEY)
 print(f'Исходные данные после расшифровки: {decrypted_str}')
